@@ -37,11 +37,11 @@ class ADialogApplyButtons(QDialog):
         """ Creates a block of buttons for further use in child dialog classes.
         """
         self.oHLayoutButtons = QHBoxLayout()
-        self.oButtonApply = QPushButton(_('Apply'), self)
+        self.oButtonApply = QPushButton(_('Применить'), self)
         self.oButtonApply.setFixedWidth(80)
-        self.oButtonOk = QPushButton(_('Ok'), self)
+        self.oButtonOk = QPushButton(_('Понеслась'), self)
         self.oButtonOk.setFixedWidth(80)
-        self.oButtonCancel = QPushButton(_('Cancel'), self)
+        self.oButtonCancel = QPushButton(_('Отмена'), self)
         self.oButtonCancel.setFixedWidth(80)
 
         self.oHLayoutButtons.addWidget(self.oButtonApply,

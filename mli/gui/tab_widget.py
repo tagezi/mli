@@ -56,7 +56,7 @@ class CentralTabWidget(QTabWidget):
             return
         self.removeTab(index)
 
-    def update_tab_name(self, iTabIndex=0, sTabName='Table 1'):
+    def update_tab_name(self, iTabIndex=0, sTabName='Вкладка 1'):
         self.setTabText(iTabIndex, sTabName)
 
 

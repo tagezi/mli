@@ -24,7 +24,7 @@ from mli.gui.message_box import warning_this_exist
 
 
 class AColor(ADialogApplyButtons):
-    """An abstract class that creates fields and functionality common to all
+    """ An abstract class that creates fields and functionality common to all
     dialogs of color. """
 
     def __init__(self, oConnector, oParent=None):
@@ -34,10 +34,10 @@ class AColor(ADialogApplyButtons):
 
     def init_UI(self):
         """ initiating a dialog view """
-        self.oComboColors = HComboBox(_('Old color name:'))
-        self.oLineEditlName = HLineEdit(_('New color name:'))
-        self.oLineEditLocalName = HLineEdit(_('New color Local name:'))
-        self.oLineEditHEXCode = HLineEdit(_('HEX code of color:'), 200)
+        self.oComboColors = HComboBox(_('Старое название цвета:'))
+        self.oLineEditlName = HLineEdit(_('Новое название цвета:'))
+        self.oLineEditLocalName = HLineEdit(_('Новое локальное имя цвета:'))
+        self.oLineEditHEXCode = HLineEdit(_('HEX код цвета:'), 200)
 
     def check_color(self, sColorName, sColorLocalName, sHEXCode):
         bColor = self.oConnector.get_color_id('colorName', sColorName)
@@ -69,7 +69,7 @@ class EditColor(AColor):
     def init_UI(self):
         """ Creating a dialog window. """
         super().init_UI()
-        self.setWindowTitle(_('Edit color.'))
+        self.setWindowTitle(_('Редактировать цвет.'))
         self.setModal(True)
 
         self.oComboColors.set_combo_list(
@@ -136,7 +136,7 @@ class NewColor(AColor):
     def init_UI(self):
         """ Creating a dialog window. """
         super().init_UI()
-        self.setWindowTitle(_('Add new color.'))
+        self.setWindowTitle(_('Добавить новый цвет.'))
         self.setModal(True)
 
         oVLayout = QVBoxLayout()
@@ -187,9 +187,9 @@ class ATaxonColors(ADialogApplyButtons):
 
     def init_UI(self):
         """ initiating a dialog view """
-        self.oComboColors = HComboBox(_('Old color name:'))
-        self.oLineEditLocalName = HLineEdit(_('New color name:'))
-        self.oLineEditHEXCode = HLineEdit(_('HEX code of color:'), 200)
+        self.oComboColors = HComboBox(_('Старое название цвета:'))
+        self.oLineEditLocalName = HLineEdit(_('Новое название цвета:'))
+        self.oLineEditHEXCode = HLineEdit(_('HEX-код цвета:'), 200)
 
 
 if __name__ == '__main__':

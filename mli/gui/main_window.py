@@ -57,13 +57,13 @@ class MainWindow(QMainWindow):
         self.setWindowTitle(_('Manual Lichen identification'))
         self.oCentralWidget = CentralTabWidget(self)
 
-        dKeyTable = {_('Name'): [''],
-                     _('Life form'): [''],
-                     _('Thallus color'): ['']}
+        dKeyTable = {_('Имя'): [''],
+                     _('Жизненная форма'): [''],
+                     _('Цвет талома'): ['']}
         oTableWidget = TableWidget(dKeyTable,
-                                   len(dKeyTable['Name']), len(dKeyTable))
+                                   len(dKeyTable['Имя']), len(dKeyTable))
 
-        self.oCentralWidget.add_tab(oTableWidget, _('Simple indications'))
+        self.oCentralWidget.add_tab(oTableWidget, _('Простая идентификация'))
         self.create_actions()
         self.connect_actions()
         self.set_menu_bar()
@@ -75,43 +75,43 @@ class MainWindow(QMainWindow):
     def create_actions(self):
         """ Method collect all actions which can do from GUI of program. """
         # File menu
-        self.oOpenDB = QAction(_('Open &DataBase...'), self)
-        self.oPrint = QAction(_('P&rint...'))
-        self.oSetting = QAction(_('&Setting...'))
-        self.oExitAct = QAction(QIcon.fromTheme('SP_exit'), _('&Exit'), self)
+        self.oOpenDB = QAction(_('Открыть базу данных...'), self)
+        self.oPrint = QAction(_('Печать...'))
+        self.oSetting = QAction(_('Настройки...'))
+        self.oExitAct = QAction(QIcon.fromTheme('SP_exit'), _('Выход'), self)
         self.oExitAct.setShortcut('Ctrl+Q')
-        self.oExitAct.setStatusTip(_('Exit application'))
+        self.oExitAct.setStatusTip(_('Закрыть приложение'))
 
         # Edit
-        self.oUndo = QAction(_('Undo'), self)
+        self.oUndo = QAction(_('Назад'), self)
         self.oUndo.setShortcut('Ctrl+Z')
-        self.oRedo = QAction(_('Redo'), self)
+        self.oRedo = QAction(_('Повтор'), self)
         self.oRedo.setShortcut('Ctrl+Z')
-        self.oFind = QAction(_('Find...'), self)
+        self.oFind = QAction(_('Найти...'), self)
         self.oFind.setShortcut('Ctrl+F')
-        self.oNewTaxon = QAction(_('New taxon...'))
-        self.oEditTaxon = QAction(_('Edit taxon...'))
-        self.oEditSynonym = QAction(_('Edit synonym taxon...'))
-        self.oNewColor = QAction(_('New color...'))
-        self.oNewColorsTaxon = QAction(_('New color for taxon...'))
-        self.oEditColor = QAction(_('Edit color...'))
-        self.oEditColorsTaxon = QAction(_('Edit colors of taxon...'))
-        self.oNewSubstrate = QAction(_('New substrate...'))
-        self.oEditSubstrate = QAction(_('Edit substrate...'))
+        self.oNewTaxon = QAction(_('Новый таксон...'))
+        self.oEditTaxon = QAction(_('Редактировать таксон...'))
+        self.oEditSynonym = QAction(_('Редактировать синоним таксона...'))
+        self.oNewColor = QAction(_('Новый цвет...'))
+        self.oNewColorsTaxon = QAction(_('Новый цвет таксона...'))
+        self.oEditColor = QAction(_('Редактировать цвет...'))
+        self.oEditColorsTaxon = QAction(_('Редактировать цвет таксона...'))
+        self.oNewSubstrate = QAction(_('Новый субстрат...'))
+        self.oEditSubstrate = QAction(_('Редактировать субстрат...'))
 
         # Tools
-        self.oTaxonInfo = QAction(_('Information on Taxon...'))
+        self.oTaxonInfo = QAction(_('Информация о таксоне...'))
 
         # Help
-        self.oOpenHelp = QAction(_('&Help'), self)
-        self.oAbout = QAction(_('&About'), self)
+        self.oOpenHelp = QAction(_('Помощь'), self)
+        self.oAbout = QAction(_('О приложении'), self)
 
     def set_menu_bar(self):
         """ Method create Menu Bar on main window of program GUI. """
         oMenuBar = self.menuBar()
 
         # Create file menu
-        oFileMenu = oMenuBar.addMenu(_('&File'))
+        oFileMenu = oMenuBar.addMenu(_('&Файл'))
         oFileMenu.addAction(self.oOpenDB)
         oFileMenu.addSeparator()
         oFileMenu.addAction(self.oPrint)
@@ -121,34 +121,34 @@ class MainWindow(QMainWindow):
         oFileMenu.addAction(self.oExitAct)
 
         # Create Edit menu
-        oEdit = oMenuBar.addMenu(_('&Edit'))
+        oEdit = oMenuBar.addMenu(_('&Правка'))
         oEdit.addAction(self.oUndo)
         oEdit.addAction(self.oRedo)
         oEdit.addSeparator()
-        oTaxa = oEdit.addMenu(_('Taxa'))
+        oTaxa = oEdit.addMenu(_('Таксон'))
         oTaxa.addAction(self.oNewTaxon)
         oTaxa.addAction(self.oEditTaxon)
         oTaxa.addAction(self.oEditSynonym)
 
-        oColor = oEdit.addMenu(_('Color'))
+        oColor = oEdit.addMenu(_('Цвет'))
         oColor.addAction(self.oNewColor)
         oColor.addAction(self.oEditColor)
         oEdit.addSeparator()
         oColor.addAction(self.oNewColorsTaxon)
         oColor.addAction(self.oEditColorsTaxon)
 
-        oSubstrates = oEdit.addMenu(_('Substrates'))
+        oSubstrates = oEdit.addMenu(_('Субстрат'))
         oSubstrates.addAction(self.oNewSubstrate)
         oSubstrates.addAction(self.oEditSubstrate)
         oEdit.addSeparator()
         oEdit.addAction(self.oFind)
 
         # Create Tool menu
-        oTools = oMenuBar.addMenu(_('&Tools'))
+        oTools = oMenuBar.addMenu(_('&Инструменты'))
         oTools.addAction(self.oTaxonInfo)
 
         # Create Help menu
-        oHelpMenu = oMenuBar.addMenu(_('&Help'))
+        oHelpMenu = oMenuBar.addMenu(_('&Помощь'))
         oHelpMenu.addAction(self.oOpenHelp)
         oHelpMenu.addAction(self.oAbout)
 
@@ -238,8 +238,8 @@ class MainWindow(QMainWindow):
     def onTaxonInfo(self):
         lTaxonList = self.get_taxon_list()
         oInputDialog = QInputDialog(self)
-        oInputDialog.setWindowTitle('Taxon choosing')
-        oInputDialog.setLabelText(_('Taxon list:'))
+        oInputDialog.setWindowTitle('Выбор таксона.')
+        oInputDialog.setLabelText(_('Список таксонов:'))
         oInputDialog.setComboBoxItems(lTaxonList)
         oInputDialog.setComboBoxEditable(True)
         oComboBox = oInputDialog.findChild(QComboBox)

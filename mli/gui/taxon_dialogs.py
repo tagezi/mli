@@ -50,15 +50,15 @@ class ATaxonDialog(ADialogApplyButtons):
 
     def init_UI(self):
         """ initiating a dialog view """
-        self.oComboStatus = VComboBox(_('Taxon status:'), 180)
-        self.oComboTaxRank = VComboBox(_('Taxon rank:'), 180)
-        self.oLineEditLatName = VLineEdit(_('Latin name:'))
-        self.oLineEditAuthor = VLineEdit(_('Author:'), 240)
-        self.oLineEditYear = VLineEdit(_('Year:'), 50)
-        self.oComboTaxNames = VComboBox(_('Taxon name:'), 500)
-        self.oComboBoxSynonym = VComboBox(_('Synonym:'), 500)
-        self.oComboMainTaxon = VComboBox(_('Main taxon:'), 500)
-        self.oLineEditLocaleName = VLineEdit(_('Local name:'))
+        self.oComboStatus = VComboBox(_('Статус таксона:'), 180)
+        self.oComboTaxRank = VComboBox(_('Ранг таксона:'), 180)
+        self.oLineEditLatName = VLineEdit(_('Латинское имя:'))
+        self.oLineEditAuthor = VLineEdit(_('Автор:'), 240)
+        self.oLineEditYear = VLineEdit(_('Год:'), 50)
+        self.oComboTaxNames = VComboBox(_('Имя таксона:'), 500)
+        self.oComboBoxSynonym = VComboBox(_('Синоним:'), 500)
+        self.oComboMainTaxon = VComboBox(_('Вышестоящий таксон:'), 500)
+        self.oLineEditLocaleName = VLineEdit(_('Локальное имя:'))
 
         oHLayoutAuthor = QHBoxLayout()
         oHLayoutAuthor.addLayout(self.oLineEditAuthor)
@@ -262,11 +262,11 @@ class EditSynonymDialog(ATaxonDialog):
     def init_UI(self):
         """ Creating a dialog window. """
         super().init_UI()
-        self.setWindowTitle(_('Editing an existing taxon'))
+        self.setWindowTitle(_('Редактирование существующего таксона'))
         self.setModal(True)
 
-        self.oLineEditLatName.set_label(_('New synonym name:'))
-        self.oComboMainTaxon.set_text(_('New main taxon:'))
+        self.oLineEditLatName.set_label(_('Новый синоним:'))
+        self.oComboMainTaxon.set_text(_('Новый главный таксон:'))
 
         oVLayout = QVBoxLayout()
         oVLayout.addLayout(self.oComboTaxNames)
@@ -315,7 +315,7 @@ class EditTaxonDialog(ATaxonDialog):
     def init_UI(self):
         """ Creating a dialog window. """
         super().init_UI()
-        self.setWindowTitle(_('Editing of a taxon'))
+        self.setWindowTitle(_('Редактирование таксона.'))
         self.setModal(True)
 
         oVLayout = QVBoxLayout()
@@ -344,7 +344,7 @@ class NewTaxonDialog(ATaxonDialog):
     def init_UI(self):
         """ Creating a dialog window. """
         super().init_UI()
-        self.setWindowTitle(_('Add new taxon to tree'))
+        self.setWindowTitle(_('Добавить новый таксон в дерево таксонов.'))
         self.setModal(True)
 
         oVLayout = QVBoxLayout()
@@ -369,7 +369,7 @@ class NewTaxonDialog(ATaxonDialog):
         bTaxonName = self.oConnector.get_taxon_id(sName, sAuthor)
 
         if sName and bTaxonName:
-            warning_this_exist(_('taxon name'), f'<i>{sName}</i>, {sAuthor}')
+            warning_this_exist(_('имя таксона'), f'<i>{sName}</i>, {sAuthor}')
             return
 
         if sName and not bTaxonName:

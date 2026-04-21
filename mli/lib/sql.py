@@ -113,8 +113,8 @@ def get_increase_value(sColumns, tValues):
 
 class SQL:
     # TODO: PyCharm does not want to define standard reStructureText
-    #  designation. I don't how it can fix now. So, I use available methods
-    #  to structure text.
+    #  designation. I don't know how it can fix now. So, I use available
+    #  methods to structure text.
     """
     Provides interface for working with database from others scripts.
 

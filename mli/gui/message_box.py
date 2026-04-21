@@ -41,8 +41,8 @@ from PyQt6.QtWidgets import QMessageBox
 
 def warning_no_synonyms(sName):
     oMsgBox = QMessageBox()
-    oMsgBox.setWindowTitle(_('There are no synonyms!'))
-    sString = _('There are no synonyms for:')
+    oMsgBox.setWindowTitle(_('Не существует синонима!'))
+    sString = _('Не существует синонима для')
     oMsgBox.setText(f'{sString} {sName}')
     oMsgBox.exec()
 
@@ -52,8 +52,8 @@ def warning_lat_name():
     isn't specified.
     """
     oMsgBox = QMessageBox()
-    oMsgBox.setWindowTitle(_('It\'s not a Latin name!'))
-    oMsgBox.setText(_('Specify a Latin name of the taxon!'))
+    oMsgBox.setWindowTitle(_('Это не латинское имя!'))
+    oMsgBox.setText(_('Укажите латинское имя для таксона!'))
     oMsgBox.exec()
 
 
@@ -62,9 +62,9 @@ def warning_restart_app():
     restarted.
     """
     oMsgBox = QMessageBox()
-    oMsgBox.setWindowTitle(_('Restart App!'))
-    oMsgBox.setText(_('The app must be restarted for the changes '
-                      'to take effect!'))
+    oMsgBox.setWindowTitle(_('Перезагрузить приложение!'))
+    oMsgBox.setText(_('Приложение должно быть перезапущено, чтобы изменения '
+                      'вступили в силу!'))
     oMsgBox.exec()
 
 
@@ -77,10 +77,10 @@ def warning_this_exist(sThis, sThisName):
     :type sThisName: str
     """
     oMsgBox = QMessageBox()
-    oMsgBox.setWindowTitle(_('This already exists!'))
+    oMsgBox.setWindowTitle(_('Это имя уже существует!'))
 
-    sThe = _('The')
-    sExist = _("already exists.")
+    sThe = _('Имя')
+    sExist = _("уже существует.")
     oMsgBox.setText(f'{sThe} {sThis} {sThisName} {sExist}')
     oMsgBox.exec()
 

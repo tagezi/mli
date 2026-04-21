@@ -34,7 +34,7 @@ class SettingDialog(ADialogApplyButtons):
         self.connect_actions()
 
     def init_UI(self):
-        self.setWindowTitle('Setting')
+        self.setWindowTitle('Настройки')
         self.setModal(True)
         self.oButtonOpenFile = QPushButton('...', self)
         sFileNameDB = self.oConfigProgram.get_config_value('DB', 'db_path')
@@ -52,8 +52,8 @@ class SettingDialog(ADialogApplyButtons):
         self.oButtonOpenFile.clicked.connect(self.onClickOpenFile)
 
     def onClickOpenFile(self):
-        dParameter = {'name': 'Selecting directory',
-                      'filter': 'DB file (*.db)'}
+        dParameter = {'name': 'Выбрать каталог',
+                      'filter': 'Файлы Базы Данных (*.db)'}
         oFileDialog = OpenFileDialog(self, dParameter)
         lFileName = oFileDialog.exec()
         sFileName = ''

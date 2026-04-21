@@ -35,8 +35,8 @@ class EditSubstrateDialog(ADialogApplyButtons):
         self.setWindowTitle(_('Edit substrate...'))
         self.setModal(True)
 
-        self.oComboSubstrateLevel = HComboBox(_('Old substrate name:'))
-        self.oLineEditSubstrate = HLineEdit(_('New substrate name:'))
+        self.oComboSubstrateLevel = HComboBox(_('Старое название субстрата:'))
+        self.oLineEditSubstrate = HLineEdit(_('Новое название субстрата:'))
         self.oComboSubstrateLevel.set_combo_list(
             sorted(self.create_substrate_list('Substrates')))
 
@@ -90,11 +90,11 @@ class NewSubstrateDialog(ADialogApplyButtons):
 
     def init_UI(self):
         """ Creating a dialog window. """
-        self.setWindowTitle(_('Add new substrate...'))
+        self.setWindowTitle(_('Добавить новый субстрат...'))
         self.setModal(True)
 
-        self.oComboSubstrateLevel = HComboBox(_('Old substrate name:'))
-        self.oLineEditSubstrate = HLineEdit(_('New substrate name:'))
+        self.oComboSubstrateLevel = HComboBox(_('Старое название субстрата:'))
+        self.oLineEditSubstrate = HLineEdit(_('Новое название субстрата:'))
 
         oVLayout = QVBoxLayout()
         oVLayout.addLayout(self.oLineEditSubstrate)

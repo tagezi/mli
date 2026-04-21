@@ -28,7 +28,7 @@ class TaxonBrowser(QTextBrowser):
 
         self.oConnector = oConnector
         self.sSciName = sSciName
-        self.sNoData = _('There is no data.')
+        self.sNoData = _('Нет данных.')
         self.oHTML = HTMLDoc()
 
         self.initUI()
@@ -49,7 +49,7 @@ class TaxonBrowser(QTextBrowser):
             sMainName, sMainAuthor = self.oConnector.get_main_taxon(iTaxonID)
             self.oHTML.set_is_synonym(sName, sAuthor, sMainName, sMainAuthor)
 
-        self.oHTML.set_title_chart(_('Status:'))
+        self.oHTML.set_title_chart(_('Статус:'))
         self.oHTML.set_string(sStatusName)
 
         if iStatusID == 1:
@@ -61,14 +61,14 @@ class TaxonBrowser(QTextBrowser):
         return self.oHTML.get_doc()
 
     def get_accepted_taxon_info(self, iTaxonID, sStatusName):
-        self.oHTML.set_title_chart(_('Synonyms:'))
+        self.oHTML.set_title_chart(_('Синонимы:'))
         tSynonyms = self.oConnector.get_synonyms(iTaxonID)
         self.get_name(tSynonyms)
 
-        self.oHTML.set_title_chart(_("Description:"))
+        self.oHTML.set_title_chart(_("Описание:"))
         self.oHTML.set_no_data(self.sNoData)
 
-        self.oHTML.set_title_chart(_('Children:'))
+        self.oHTML.set_title_chart(_('Дочерние таксоны:'))
         tChildren = \
             self.oConnector.get_taxon_children(iTaxonID, sStatusName)
         self.get_name(tChildren)
@@ -82,7 +82,7 @@ class TaxonBrowser(QTextBrowser):
 
     def get_taxon_db_links(self, iTaxonID, iLevelID, sName):
         tTaxonDB = self.oConnector.get_taxon_db_link(iTaxonID)
-        self.oHTML.set_title_chart(_("Database links:"))
+        self.oHTML.set_title_chart(_("Ссылки в других базах данных:"))
         if tTaxonDB:
             for sSource, sLink, sIndex in tTaxonDB:
                 self.oHTML.set_link(sSource, sLink, sIndex)
@@ -94,7 +94,7 @@ class TaxonBrowser(QTextBrowser):
             self.oHTML.set_link('LichenPortal', sLink, sName)
 
     def get_taxon_ref_links(self, iTaxonID):
-        self.oHTML.set_title_chart(_('References to literature:'))
+        self.oHTML.set_title_chart(_('Ссылки на источники:'))
         self.oHTML.set_no_data(self.sNoData)
 
 

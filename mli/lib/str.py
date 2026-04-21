@@ -112,12 +112,31 @@ def str_sep_name_taxon(sString):
 
 
 class HTMLDoc:
-
     def __init__(self):
+        """ Класс содержит методы разбора и оставления строк для формирования
+        документа 'карточка таксона'
+
+        **Члены класса**
+
+        *lDoc*: Список строк для документа
+
+        *dLinks*: словарь возможных ссылок на сторонние ресурсы
+        """
         self.lDoc = []
         self.dLinks = {}
 
     def set_title_doc(self, sRank, sName, sAuthor):
+        """ Форматирует заголовок документа из составляющих имени и ранга
+         таксона.
+
+        :param sRank: Ранг таксона
+        :type sRank: str
+        :param sName: Имя таксона без автора и года
+        :type sName: str
+        :param sAuthor: Авторство таксона
+        :type sAuthor: str
+        :return: none
+        """
         self.lDoc.append(f'<h2>({sRank}) '
                          f'{str_get_html_name(sName, sAuthor)}</h2>')
 
@@ -128,7 +147,7 @@ class HTMLDoc:
         self.lDoc.append(f'<h3>{sTitle}</h3>')
 
     def set_is_synonym(self, sName, sAuthor, sMainName, sMainAuthor):
-        sIS = _(" is synonym of ")
+        sIS = _(" является синонимом ")
         self.lDoc.append(f'{str_get_html_name(sName, sAuthor)} {sIS}'
                          f'{str_get_html_name(sMainName, sMainAuthor)}')
 
@@ -136,6 +155,12 @@ class HTMLDoc:
         self.set_string(f'({sRank}) {str_get_html_name(sName, sAuthor)}')
 
     def set_string(self, String):
+        """ Устанавливает строку и переводит каретку в формате HTML
+
+        :param String: Строка для добавления в список
+        :type String: str
+        :return: None
+        """
         self.lDoc.append(f'{String}<br>')
 
     def set_no_data(self, sNoData):
